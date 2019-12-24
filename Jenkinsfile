@@ -16,7 +16,8 @@ pipeline {
         stage("Executing") {
             steps {
                 echo "${params.userFlag}"
-               
+                echo "${params.CHOOSE}"
+                echo "${params.mytextparam}"                      
                }
             }
         }
