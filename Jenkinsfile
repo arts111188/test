@@ -6,7 +6,7 @@ pipeline {
         string(name: 'Test',defaultValue: 'test')
         choice(
         name: 'CHOOSE',
-        choices: "env1\env2\env3",
+        choices: 'env1\env2\env3',
         description: 'CHOOSE DESC' )
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'CREDENTIALS', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
         text(name: 'mytextparam', 
