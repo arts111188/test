@@ -8,7 +8,7 @@ pipeline {
         name: 'CHOOSE',
         choices: 'env1\nenv2\nenv3',
         description: 'CHOOSE DESC' )
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'CREDENTIALS', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
+        credentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'CREDENTIALS', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
         text(name: 'mytextparam', 
                  defaultValue: 'This is a test text', 
                  description: 'nWill be used by pipeline')  
