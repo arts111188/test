@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage("Executing") {
             steps {
-               if (params.userFlag == true){
+                echo "${params.userFlag}
                
                }
             }
