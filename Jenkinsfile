@@ -12,9 +12,6 @@ pipeline {
                  defaultValue: 'This is a test text', 
                  description: 'nWill be used by pipeline')  
     }
-    
-    
-
     stages {
         stage("Executing") {
             steps {
@@ -24,4 +21,3 @@ pipeline {
             }
         }
     }
-}
