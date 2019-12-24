@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
-        string(name: 'Test,defaultValue: 'test')
+        string(name: 'Test',defaultValue: 'test')
         choice(
         name: 'CHOOSE',
         choices: "env1\env2\env3",
