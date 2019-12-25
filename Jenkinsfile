@@ -21,20 +21,21 @@ pipeline {
                    url: 'https://github.com/arts111188/devops_training.git'                    },
                b: 
                 script {
-               {
+               
                    writeFile file: "${fileName}.txt", text: "${params.userFlag},${params.CHOOSE}"
                    sh 'cat fileName.txt'
                    sh 'mv ${fileName}.txt ${fileName}_new.txt'
-                   }
+                   
                    if (fileExists('${fileName}_new.txt')) {
                    sh 'cat ${fileName}_new.txt'
-                   
+                   }
                 }
-                }
+               
 
      )
-          }
       }
+          }
+     
      stage("Next"){
        steps{
           script {
