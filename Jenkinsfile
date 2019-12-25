@@ -29,7 +29,7 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {
                    def lines = fileName.readLines()
-                   echo lines
+                   echo 'lines'
                    lines.each { String line ->
                    println line}
                    }
