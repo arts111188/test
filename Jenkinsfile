@@ -5,7 +5,9 @@ pipeline {
         string(name: 'Test',defaultValue: 'test')  
         choice(name: 'CHOOSE',choices: 'env1\nenv2\nenv3',description: 'CHOOSE DESC' )
         text(name: 'mytextparam', defaultValue: 'This is a test text', description: 'nWill be used by pipeline')
-        credentials([usernamePassword(credentialsId: 'CREDENTIALS', passwordVariable: 'pass', usernameVariable: 'user')])
+       withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'CREDENTIALS',usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+sh 'echo uname=$USERNAME pwd=$PASSWORD'
+ }
     }
     stages {
       stage ("Executing") {         
