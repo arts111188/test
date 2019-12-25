@@ -29,7 +29,9 @@ pipeline {
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt")  
                    println read_file  
-                   greppedFile = new File("${fileName}_new.txt").readLines()  
+                   new File("${fileName}_new.txt")eachLine { line ->
+                   println line
+                     }
                    println greppedFile       
                   // lines = new File('testfile_new.txt').readLines()
                    def line = greppedFile.readLines()
