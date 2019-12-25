@@ -16,9 +16,13 @@ pipeline {
                    credentialsId: 'CREDENTIALS',
                    url: 'https://github.com/arts111188/devops_training.git'                    },
                b: {
-                  writeFile file: 'groovy1.txt', text: "${params.userFlag},${params.CHOOSE}"
-                   sh 'ls -l groovy1.txt'
-                   sh 'cat groovy1.txt'
+                   fileName: testfile,
+                   writeFile file: "${testfile}.txt", text: "${params.userFlag},${params.CHOOSE}"
+                   sh 'cat testfile.txt'
+                   sh 'mv ${testfile}.txt ${testfile}_new.txt'
+                   if (fileExists('${testfile}_new.txt')) {
+                   sh 'cat ${testfile}_new.txt'
+                   }
                 }
 
      )
