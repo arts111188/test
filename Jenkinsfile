@@ -18,7 +18,8 @@ pipeline {
                a: {
                    git branch: 'master',
                    credentialsId: 'CREDENTIALS',
-                   url: 'https://github.com/arts111188/devops_training.git'                    },
+                   url: 'https://github.com/arts111188/devops_training.git'
+                              }                    },
                b: 
                 script {
                
