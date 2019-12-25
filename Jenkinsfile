@@ -9,8 +9,9 @@ pipeline {
     }
     stages {
       stage ("Executing") {
-        if (params.userFlag == 'true') {
+         
           steps {
+            if (params.userFlag == 'true'){
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
                 echo "${params.mytextparam}"       
