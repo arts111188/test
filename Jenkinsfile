@@ -24,11 +24,11 @@ pipeline {
                 script {
                
                    writeFile file: "${fileName}.txt", text: "${params.userFlag},${params.CHOOSE}"
-                   sh 'cat fileName.txt'
-                   sh 'mv ${fileName}.txt ${fileName}_new.txt'
+                   sh "cat ${fileName}.txt"
+                   sh "mv ${fileName}.txt ${fileName}_new.txt"
                    
-                   if (fileExists('${fileName}_new.txt')) {
-                   sh 'cat ${fileName}_new.txt'
+                   if (fileExists("${fileName}_new.txt")) {
+                   sh "cat ${fileName}_new.txt"
                    }
                 }
                }
