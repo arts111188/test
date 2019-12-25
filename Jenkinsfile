@@ -31,7 +31,7 @@ pipeline {
                    println read_file  
                    result = read_file.findAll { it.contains("env") }
                    while ((line = read_file.readLine()) != null) {
-                   println "${line}"
+                   println line
                    noOfLines++
                     }
                    println result
