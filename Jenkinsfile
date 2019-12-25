@@ -29,7 +29,7 @@ pipeline {
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt")             
                    //def lines = new File("${fileName}_new.txt").readLines()
-                   def line = readLines.readLines()
+                   def line = read_file.readLines()
                    def result = line.findAll { it.contains("env") }
                    println result.toString()
 
