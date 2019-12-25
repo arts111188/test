@@ -27,14 +27,9 @@ pipeline {
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
-                   read_file = readFile("${fileName}_new.txt").readLines() 
-                   println   
+                   read_file = readFile("${fileName}_new.txt").readLines().eachLine() 
+                   println read_file
                    result = read_file.findAll { it.contains("env") }
-                   file.withReader { reader ->
-                   while ((line = read_file.readLine()) != null) {
-                   println line
-                   noOfLines++
-                    }
                    println result
                   //  new File("${fileName}_new.txt")eachLine { line ->
                   //  println line
