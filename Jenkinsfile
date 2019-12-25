@@ -7,10 +7,10 @@ pipeline {
         text(name: 'mytextparam', defaultValue: 'This is a test text', description: 'nWill be used by pipeline')
     }
     stages {
-      stage ("Executing") {
-         
+      stage ("Executing") {         
           steps {
-            if (params.userFlag == 'true'){
+            script{
+            if (params.userFlag == 'true') {
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
                 echo "${params.mytextparam}"       
@@ -18,6 +18,7 @@ pipeline {
                else{
                  echo "BOMBOM"
                }
+            }
             }
         }
     }
