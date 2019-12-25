@@ -28,8 +28,9 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines() 
-                   println read_file  
+                   println   
                    result = read_file.findAll { it.contains("env") }
+                   file.withReader { reader ->
                    while ((line = read_file.readLine()) != null) {
                    println line
                    noOfLines++
