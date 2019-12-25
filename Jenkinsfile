@@ -8,18 +8,19 @@ pipeline {
        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'CREDENTIALS',usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) 
     }
     stages {
+        parallel(
+          a: {
+             sh 'git checkout https://github.com/arts111188/devops_training.git'
+          },
+          b: {
+             writeFile file: 'groovy1.txt', text: '${params.userFlag},${params.CHOOSE}'
+             sh 'ls -l groovy1.txt'
+             sh 'cat groovy1.txt'
+       }
+     )
       stage ("Executing") {         
           steps {
-                      parallel(
-      a: {
-        sh 'git checkout https://github.com/arts111188/devops_training.git'
-      },
-      b: {
-        writeFile file: 'groovy1.txt', text: '${params.userFlag},${params.CHOOSE}'
-         sh 'ls -l groovy1.txt'
-         sh 'cat groovy1.txt'
-      }
-      )
+    
     script {
                 echo "${params.userFlag}"
             if (params.userFlag) {
