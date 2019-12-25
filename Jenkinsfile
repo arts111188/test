@@ -1,5 +1,6 @@
 pipeline {
     agent any
+   
     parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
         string(name: 'Test',defaultValue: 'test')  
@@ -8,7 +9,10 @@ pipeline {
        
     }
     stages {
-      stage ("Executing") {         
+      stage ("Executing") {  
+          environment {
+       fileName = "testfile"
+   }       
           steps { 
             parallel(
                a: {
@@ -16,7 +20,6 @@ pipeline {
                    credentialsId: 'CREDENTIALS',
                    url: 'https://github.com/arts111188/devops_training.git'                    },
                b: {
-                   def fileName = testfile
                    writeFile file: "${testfile}.txt", text: "${params.userFlag},${params.CHOOSE}"
                    sh 'cat testfile.txt'
                    sh 'mv ${testfile}.txt ${testfile}_new.txt'
