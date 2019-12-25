@@ -8,7 +8,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'CREDENTIALS', passwordVariable: 'pass', usernameVariable: 'user')])  
     }
     stages {
-      stage ("Executing")
+      stage ("Executing") {
         if (params.userFlag == 'true') {
           steps {
                 echo "${params.userFlag}"
@@ -17,4 +17,5 @@ pipeline {
                }
             }
         }
+    }
 }
