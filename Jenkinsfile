@@ -22,7 +22,7 @@ pipeline {
                b: {
                 script {
                
-                   writeFile file: "${fileName}.txt", text: "${params.userFlag}\n,${params.CHOOSE}"
+                   writeFile file: "${fileName}.txt", text: "${params.userFlag}\n${params.CHOOSE}"
                    newVar = sh (script: 'ls -lah',returnStdout: true).trim()
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
@@ -51,7 +51,7 @@ pipeline {
 
      )
       }
-          }
+   }
      
      stage("Next"){
        steps{
