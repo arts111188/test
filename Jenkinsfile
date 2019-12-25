@@ -28,7 +28,7 @@ pipeline {
        steps{
           script {
             withCredentials([
-            usernamePassword(credentialsId: 'gitlab',
+            usernamePassword(credentialsId: 'CREDENTIALS',
               usernameVariable: 'username',
               passwordVariable: 'password')
           ]) {
