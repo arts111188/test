@@ -19,8 +19,8 @@ pipeline {
                    git branch: 'master',
                    credentialsId: 'CREDENTIALS',
                    url: 'https://github.com/arts111188/devops_training.git'
-                              }                    },
-               b: 
+                  },
+               b: {
                 script {
                
                    writeFile file: "${fileName}.txt", text: "${params.userFlag},${params.CHOOSE}"
@@ -31,6 +31,7 @@ pipeline {
                    sh 'cat ${fileName}_new.txt'
                    }
                 }
+               }
                
 
      )
