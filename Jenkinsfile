@@ -30,6 +30,10 @@ pipeline {
                    read_file = readFile("${fileName}_new.txt").readLines() 
                    println read_file  
                    result = read_file.findAll { it.contains("env") }
+                   while ((line = read_file.readLine()) != null) {
+                   println "${line}"
+                   noOfLines++
+                    }
                    println result
                   //  new File("${fileName}_new.txt")eachLine { line ->
                   //  println line
