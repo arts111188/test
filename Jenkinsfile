@@ -29,6 +29,7 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {
                    def lines = fileName.readLines()
+                   echo lines
                    lines.each { String line ->
                    println line}
                    }
@@ -49,9 +50,6 @@ pipeline {
               passwordVariable: 'password')
           ]) {
             print 'username=' + username + 'password=' + password
-
-            print 'username.collect { it }=' + username.collect { it }
-            print 'password.collect { it }=' + password.collect { it }
           }
           echo "${params.userFlag}"
             if (params.userFlag) {
