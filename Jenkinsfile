@@ -28,7 +28,7 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines()
-                   read_file.eachLine() {
+                   read_file.each {
                    if (it.startsWith( 'env' ))
                    println it
                    }
