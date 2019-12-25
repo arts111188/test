@@ -30,7 +30,7 @@ pipeline {
                    
                    def lines = new File("${fileName}_new.txt").readLines()
                    def result = lines.findAll { it.contains('env') }
-                   println result*.toString()
+                   println result.toString()
 
                    
                    
