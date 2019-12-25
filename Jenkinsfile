@@ -27,11 +27,10 @@ pipeline {
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
-                   read_file = readFile("${fileName}_new.txt").readLines().get(1)
-                  println(read_file)
+                   read_file = readFile("${fileName}_new.txt").readLines().print
                    read_file.each {
                    if (it.startsWith( 'env' ))
-                   println it
+                   println it.line
                    }
                    
                    
