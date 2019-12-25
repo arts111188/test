@@ -22,18 +22,26 @@ pipeline {
                b: {
                 script {
                
-                   writeFile file: "${fileName}.txt", text: "${params.userFlag},${params.CHOOSE}"
+                   writeFile file: "${fileName}.txt", text: "${params.userFlag}\n,${params.CHOOSE}"
                    newVar = sh (script: 'ls -lah',returnStdout: true).trim()
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {                
+                   
+                   def lines = new File("${fileName}_new.txt").readLines()
+                   def result = lines.findAll { it.contains('env') }
+                   println result*.toString()
+
+                   
+                   
+                   
+                   
+                   
                    read_file = readFile("${fileName}_new.txt")  
-                   newFile = ${fileName}_new.txt                
-                   search_file = newFile.contains("env")
-                   echo "${search_file}"
+                   newFile = readFile("${fileName}_new.txt")               
+                   echo "${newFile}"
                    echo "${read_file}"
-                   echo "${read_file}"
-                   echo 'lines'
+                 
                    //lines.each { String line ->
                    //println line}
                    }
