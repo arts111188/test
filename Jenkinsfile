@@ -28,7 +28,7 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines()
-                   for (i=0,i<5,i++){
+                   for (int i=0, i<5, i++){
                      println read_file
                    }
                    
