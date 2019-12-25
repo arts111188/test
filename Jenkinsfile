@@ -8,18 +8,13 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'CREDENTIALS', passwordVariable: 'pass', usernameVariable: 'user')])  
     }
     stages {
-        stage("Executing")
+      stage("Executing")
+        if (params.userFlag == 'true') {
           steps {
-            if (params.userFlag == 'true') {
-            
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
                 echo "${params.mytextparam}"       
-              
-   
                }
-               echo "test not checked"
-              
             }
         }
 }
