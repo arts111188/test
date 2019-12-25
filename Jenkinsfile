@@ -27,7 +27,7 @@ pipeline {
                    sh "cat ${fileName}.txt"
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    
-                   if (fileExists(${fileName}_new.txt)) {
+                   if (fileExists("${fileName}_new.txt")) {
                    sh "cat ${fileName}_new.txt"
                    }
                 }
