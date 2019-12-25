@@ -29,7 +29,7 @@ pipeline {
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines()
                    while (read_file){
-                     println 
+                     println it
                    }
                    
                    
