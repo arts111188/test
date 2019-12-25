@@ -11,7 +11,7 @@ pipeline {
     stages {
       stage ("Executing") {  
           environment {
-       fileName = testfile
+       fileName = 'testfile'
    }       
           steps { 
             parallel(
