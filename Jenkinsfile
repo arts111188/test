@@ -10,6 +10,7 @@ pipeline {
       stage ("Executing") {         
           steps {
             script{
+                echo "${params.userFlag}"
             if (params.userFlag == 'true') {
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
