@@ -16,6 +16,9 @@ pipeline {
                 echo "${params.CHOOSE}"
                 echo "${params.mytextparam}"       
                }
+               else{
+                 echo "BOMBOM"
+               }
             }
         }
     }
