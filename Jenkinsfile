@@ -30,7 +30,7 @@ pipeline {
                    read_file = readFile("${fileName}_new.txt").readLines()
                    println read_file
                    result = read_file.findAll { it.contains("env") }
-                       println ${result}
+                   println result
                   //  new File("${fileName}_new.txt")eachLine { line ->
                   //  println line
                   //    }
