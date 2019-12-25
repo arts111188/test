@@ -16,7 +16,7 @@ pipeline {
                    credentialsId: 'CREDENTIALS',
                    url: 'https://github.com/arts111188/devops_training.git'                    },
                b: {
-                   def fileName: testfile
+                   def fileName = testfile
                    writeFile file: "${testfile}.txt", text: "${params.userFlag},${params.CHOOSE}"
                    sh 'cat testfile.txt'
                    sh 'mv ${testfile}.txt ${testfile}_new.txt'
