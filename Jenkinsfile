@@ -24,7 +24,7 @@ pipeline {
                 script {
                
                    writeFile file: "${fileName}.txt", text: "${params.userFlag},${params.CHOOSE}"
-                   e = sh '("cat ${fileName}.txt",stdout =true)'
+                   e = sh "(cat ${fileName}.txt",stdout =true)"
                    echo 'e'
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    
