@@ -29,7 +29,7 @@ pipeline {
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines()
                    read_file.eachLine {
-                   if (it.startsWith( 'env' )
+                   if (it.startsWith( 'env' ))
                    println it
                    }
                    
