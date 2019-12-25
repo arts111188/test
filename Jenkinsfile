@@ -12,10 +12,11 @@ pipeline {
           steps { 
             parallel(
                a: {
-                    sh 'git checkout https://github.com/arts111188/devops_training.git'
-                    },
+                   git branch: 'master',
+                   credentialsId: 'CREDENTIALS',
+                   url: 'git@github.com:arts111188/devops_training.git'                    },
                b: {
-                  writeFile file: 'groovy1.txt', text: '${params.userFlag},${params.CHOOSE}'
+                  writeFile file: 'groovy1.txt', text: "${params.userFlag},${params.CHOOSE}"
                    sh 'ls -l groovy1.txt'
                    sh 'cat groovy1.txt'
                 }
@@ -36,7 +37,7 @@ pipeline {
             print 'username.collect { it }=' + username.collect { it }
             print 'password.collect { it }=' + password.collect { it }
           }
-                echo "${params.userFlag}"
+          echo "${params.userFlag}"
             if (params.userFlag) {
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
