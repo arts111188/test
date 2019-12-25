@@ -13,7 +13,7 @@ pipeline {
             parallel(
                a: {
                    git branch: 'master',
-                   credentialsId: 'CREDENTIALS',
+                   credentialsId: 'key',
                    url: 'git@github.com:arts111188/devops_training.git'                    },
                b: {
                   writeFile file: 'groovy1.txt', text: "${params.userFlag},${params.CHOOSE}"
