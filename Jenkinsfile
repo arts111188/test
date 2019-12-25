@@ -9,7 +9,7 @@ pipeline {
         choices: 'env1\nenv2\nenv3',
         withCredentials([usernamePassword(credentialsId: 'CREDENTIALS', passwordVariable: 'pass', usernameVariable: 'user')]) {
     // the code in here can access $pass and $user
-}
+},
         description: 'CHOOSE DESC' )
         text(name: 'mytextparam', 
                  defaultValue: 'This is a test text', 
