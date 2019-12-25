@@ -23,10 +23,10 @@ pipeline {
                    writeFile file: "${testfile}.txt", text: "${params.userFlag},${params.CHOOSE}"
                    sh 'cat testfile.txt'
                    sh 'mv ${testfile}.txt ${testfile}_new.txt'
+                   }
                    if (fileExists('${testfile}_new.txt')) {
                    sh 'cat ${testfile}_new.txt'
                    }
-                }
 
      )
           }
