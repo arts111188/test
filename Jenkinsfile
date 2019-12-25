@@ -27,19 +27,19 @@ pipeline {
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
-                   read_file = readFile("${fileName}_new.txt")  
+                   read_file = readFile("${fileName}_new.txt").readLines  
                    println read_file  
-                   new File("${fileName}_new.txt")eachLine { line ->
-                   println line
-                     }
-                   println greppedFile       
-                  // lines = new File('testfile_new.txt').readLines()
-                   def line = greppedFile.readLines()
-                   println line
-                   def result = line.findAll { it.contains("env") }
-                   println lines
-                   println result
-                   println result.toString()
+                  //  new File("${fileName}_new.txt")eachLine { line ->
+                  //  println line
+                  //    }
+                  //  println greppedFile       
+                  // // lines = new File('testfile_new.txt').readLines()
+                  //  def line = greppedFile.readLines()
+                  //  println line
+                  //  def result = line.findAll { it.contains("env") }
+                  //  println lines
+                  //  println result
+                  //  println result.toString()
 
                    
                    
