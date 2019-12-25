@@ -27,7 +27,6 @@ pipeline {
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {                
-                   
                    def lines = new File("${fileName}_new.txt").readLines()
                    def result = lines.findAll { it.contains('env') }
                    println result.toString()
@@ -45,6 +44,7 @@ pipeline {
                    //lines.each { String line ->
                    //println line}
                    }
+                   echo "HOpa"
                 }
                }
                
