@@ -22,9 +22,10 @@ pipeline {
                 echo "${params.userFlag}"
                 echo "${params.CHOOSE}"
                 echo "${params.mytextparam}"       
-          
+              
+   
                }
-             echo 'not checked'
+               echo "test not checked"
               
             }
         }
