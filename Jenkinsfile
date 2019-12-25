@@ -26,9 +26,10 @@ pipeline {
                    newVar = sh (script: 'ls -lah',returnStdout: true).trim()
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
-                   //if (fileExists("${fileName}_new.txt")) {                
-                   def lines = new File("${fileName}_new.txt").readLines()
-                   def result = lines.findAll { it.contains('env') }
+                   if ("fileExists(${fileName}_new.txt)") {  
+                   read_file = readFile("${fileName}_new.txt")             
+                   //def lines = new File("${fileName}_new.txt").readLines()
+                   def result = read_file.findAll { it.contains('env') }
                    println result.toString()
 
                    
@@ -36,14 +37,14 @@ pipeline {
                    
                    
                    
-                   read_file = readFile("${fileName}_new.txt")  
+                     
                    newFile = readFile("${fileName}_new.txt")               
                    echo "${newFile}"
                    echo "${read_file}"
                  
                    //lines.each { String line ->
                    //println line}
-                  //}
+                   }
                    echo "HOpa"
                 }
                }
