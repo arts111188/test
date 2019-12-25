@@ -29,10 +29,10 @@ pipeline {
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt")  
                    println read_file  
-                   greppedFile = new File("${fileName}_new.txt")  
+                   greppedFile = new File("${fileName}_new.txt").readLines()  
                    println greppedFile       
                   // lines = new File('testfile_new.txt').readLines()
-                   def line = read_file.readLines()
+                   def line = greppedFile.readLines()
                    println line
                    def result = line.findAll { it.contains("env") }
                    println lines
