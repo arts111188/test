@@ -27,7 +27,7 @@ pipeline {
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {                
-                   read_file = readLines("${fileName}_new.txt")
+                   read_file = readFile("${fileName}_new.txt")
                    echo 'lines'
                    lines.each { String line ->
                    println line}
