@@ -7,10 +7,7 @@ pipeline {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
         string(name: 'Test',defaultValue: 'test')  
         choice(name: 'CHOOSE',choices: 'env1\nenv2\nenv3',description: 'CHOOSE DESC' )
-        text(name: 'mytextparam', defaultValue: 'This is a test text', description: 'nWill be used by pipeline')
-        read_file = ""
-      
-       
+        text(name: 'mytextparam', defaultValue: 'This is a test text', description: 'nWill be used by pipeline')       
     }
     stages {
       stage ("Executing") {  
@@ -29,7 +26,7 @@ pipeline {
                    newVar = sh (script: 'ls -lah',returnStdout: true).trim()
                    echo "Git committer email: ${newVar}"                   
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
-                   if ("fileExists(${fileName}_new.txt)") {                 
+                   if ("fileExists(${fileName}_new.txt)") {                
                    read_file = readLines("${fileName}_new.txt")
                    echo 'lines'
                    lines.each { String line ->
