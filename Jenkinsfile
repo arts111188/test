@@ -1,3 +1,5 @@
+def fileName = "testfile"
+
 pipeline {
     agent any
    
@@ -10,9 +12,7 @@ pipeline {
     }
     stages {
       stage ("Executing") {  
-          environment {
-       fileName = 'testfile'
-   }       
+
           steps { 
             parallel(
                a: {
