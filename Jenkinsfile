@@ -10,17 +10,7 @@ pipeline {
     stages {
       stage ("Executing") {         
           steps { 
-            script {
-                echo "${params.userFlag}"
-            if (params.userFlag) {
-                echo "${params.userFlag}"
-                echo "${params.CHOOSE}"
-                echo "${params.mytextparam}"       
-               }
-               else{
-                 echo "BOMBOM"
-               }
-            } 
+
             parallel(
                a: {
                     sh 'git checkout https://github.com/arts111188/devops_training.git'
@@ -32,6 +22,19 @@ pipeline {
                 }
 
      )
+     stage("Next"){
+          script {
+                echo "${params.userFlag}"
+            if (params.userFlag) {
+                echo "${params.userFlag}"
+                echo "${params.CHOOSE}"
+                echo "${params.mytextparam}"       
+               }
+               else{
+                 echo "BOMBOM"
+               }
+            } 
+     }
     
 
             }
