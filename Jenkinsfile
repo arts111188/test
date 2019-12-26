@@ -28,10 +28,13 @@ pipeline {
                    sh "mv ${fileName}.txt ${fileName}_new.txt"
                    if ("fileExists(${fileName}_new.txt)") {  
                    read_file = readFile("${fileName}_new.txt").readLines().print
-                   read_file.each {
-                   if (it.startsWith( 'env' ))
-                   println it.line
-                   }
+                   def start = 0
+                   def end = 3
+                   new File("${fileName}_new.txt").eachLine(start) {lineNo, line ->
+                   if (lineNo <= end) {
+                    println lineNo   
+                    }
+}
                    
                    
                    
