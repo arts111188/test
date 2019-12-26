@@ -30,6 +30,7 @@ pipeline {
                    read_file = readFile("${fileName}_new.txt").readLines().print
                    def start = 0
                    def end = 3
+                   sh 'pwd'
                    new File("${fileName}_new.txt").eachLine(start) {lineNo, line ->
                    if (lineNo <= end) {
                     println lineNo   
