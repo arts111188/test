@@ -45,16 +45,17 @@ def call(int buildNumber) {
         }
       }
     }
-  }
-        else {
-            stages {
-              stage('Odd Stage') {
-                steps {
-                  echo "The build number is odd"
-                }
-              }
-            }
-
+  } else {
+    pipeline {
+      stages {
+        stage('Odd Stage') {
+          steps {
+            echo "The build number is odd"
+          }
         }
       }
+
+    }
+  }
+}
 
