@@ -22,28 +22,7 @@ def call(int buildNumber) {
                               credentialsId: 'CREDENTIALS',
                               url: 'https://github.com/arts111188/devops_training.git'
                     },
-                    b: {
-                      script {
-                        def fileName = "testfile.txt"
-                        writeFile file: "${fileName}.txt", text: "${params.userFlag}\n${params.CHOOSE}\n"
-                        newVar = sh(script: 'ls -lah', returnStdout: true).trim()
-                        echo "Git committer email: ${newVar}"
-                        sh "mv ${fileName}.txt ${fileName}_new.txt"
-                        if ("fileExists(${fileName}_new.txt)") {
-                          read_file = readFile("${fileName}_new.txt").readLines()
-                          println read_file
-                          sh 'pwd'
-                          def firstLine = ''
-                          def closure = ''
-                          read_file.each { String env ->
-                            println env
-                          }
-                        }
-                        else {
-                          echo "Done"
-                        }
-                      }
-                    }
+
             )
           }
         }
@@ -51,7 +30,7 @@ def call(int buildNumber) {
     }
   } else {
     pipeline {
-      agent any
+        agent any
         stages {
            stage('Odd Stage') {
               steps {
