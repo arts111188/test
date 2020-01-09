@@ -39,6 +39,9 @@ def call(int buildNumber) {
                             println env
                           }
                         }
+                        else {
+                          echo "Done"
+                        }
                       }
                     }
             )
