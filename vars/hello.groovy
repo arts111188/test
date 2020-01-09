@@ -1,5 +1,4 @@
 def call(int buildNumber) {
-  if (buildNumber % 2 == 0) {
     pipeline {
       agent any
       parameters {
@@ -22,24 +21,32 @@ def call(int buildNumber) {
                               credentialsId: 'CREDENTIALS',
                               url: 'https://github.com/arts111188/devops_training.git'
                     },
-
+                    b: {
+                      script {
+                        def fileName = "testfile.txt"
+                        writeFile file: "${fileName}.txt", text: "${params.userFlag}\n${params.CHOOSE}\n"
+                        newVar = sh(script: 'ls -lah', returnStdout: true).trim()
+                        echo "Git committer email: ${newVar}"
+                        sh "mv ${fileName}.txt ${fileName}_new.txt"
+                        if ("fileExists(${fileName}_new.txt)") {
+                          read_file = readFile("${fileName}_new.txt").readLines()
+                          println read_file
+                          sh 'pwd'
+                          def firstLine = ''
+                          def closure = ''
+                          read_file.each { String env ->
+                            println env
+                          }
+                        }
+                        else {
+                          echo "Done"
+                        }
+                      }
+                    }
             )
           }
         }
       }
     }
-  } else {
-    pipeline {
-        agent any
-        stages {
-           stage('Odd Stage') {
-              steps {
-                echo "The build number is odd"
-          }
-        }
-      }
-
-    }
   }
-}
 
