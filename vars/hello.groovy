@@ -47,8 +47,6 @@ def call(int buildNumber) {
     }
   }
         else {
-          pipeline {
-            agent any
             stages {
               stage('Odd Stage') {
                 steps {
@@ -56,7 +54,7 @@ def call(int buildNumber) {
                 }
               }
             }
-          }
+
         }
       }
 
